@@ -13,13 +13,10 @@ one = np.array([np.ones(len(House_Details))]).T
 
 prices = np.array([460, 232, 315, 178])
 
-#Scalled features
-area_s = np.array([])
-age_s = np.array([])
-floor_s = np.array([])
-room_s = np.array([])
+# Scaled features
+area_s, age_s, floor_s, room_s = np.array([])
 
-#feature scaling
+# feature scaling
 i = 0
 for k in House_Details.items():
     area = House_Details.get("area")
@@ -35,7 +32,7 @@ for k in House_Details.items():
     floor_s = np.append(floor_s, (floors[i] - 1) / (2 - 1))
     i = i + 1
 
-#Features matrix
+# Features matrix
 X = np.array([area_s, room_s, floor_s, age_s]).T
 X = np.hstack((one, X))
 
